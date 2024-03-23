@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Flight Search Results</title>
+</head>
+<body>
+<h1>Flight Search Results</h1>
+<ul>
+{% for flight in flight_options %}
+<li>
+Airline: {{ flight.airline }}<br>
+Departure Time: {{ flight.departure_time }}<br>
+Arrival Time: {{ flight.arrival_time }}<br>
+Fare: {{ flight.fare }}<br>
+<form action="/book" method="POST">
+<input type="hidden" name="flight_id" value="{{ flight.id }}">
+<input type="submit" value="Book">
+</form>
+</li>
+{% endfor %}
+</ul>
+</body>
+</html>
+
